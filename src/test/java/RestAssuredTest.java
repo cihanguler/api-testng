@@ -5,7 +5,6 @@ import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
 import static org.hamcrest.Matchers.equalTo;
@@ -19,7 +18,7 @@ public class RestAssuredTest {
                 .get("https://reqres.in/api/users/2")
                 .then()
                 .statusCode(200)
-                .body("data.email", equalTo("jaaaanet.weaver@reqres.in"))
+                .body("data.email", equalTo("janet.weaver@reqres.in"))
                 .time(lessThan(1000L));
     }
 
@@ -37,8 +36,8 @@ public class RestAssuredTest {
     @Test
     public void createUserTest() {
         String postData = "{\n" +
-                "  \"name\": \"morpheus\",\n" +
-                "  \"job\": \"leader\"\n" +
+                "  \"name\": \"cihan\",\n" +
+                "  \"job\": \"sdet\"\n" +
                 "}";
         given().
                 contentType(ContentType.JSON).
@@ -47,7 +46,8 @@ public class RestAssuredTest {
                 post("https://reqres.in/api/users").
                 then().
                 statusCode(201).
-                body("name", equalTo("morpheus"));
+                body("name", equalTo("cihan"));
+
     }
 
 
